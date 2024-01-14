@@ -31,13 +31,15 @@ newgamebutton.addEventListener("click", resetgame);
 resetgame1.addEventListener("click", resetgame);
 
 boxes.forEach((box) => {
-    box.addEventListener("click", () => {
+    box.addEventListener("click", (event) => {
         if(turnO === true){
             box.innerText = 'O';
+            event.target.style.color = "red"; // Set inner text color to red for 'O'
             turnO = false;
         }
         else{
             box.innerText = 'X';
+            event.target.style.color = "black"; // Set inner text color to red
             turnO = true;
         }
         box.disabled = true; //It does not allow to change the element//Note it down
@@ -60,6 +62,7 @@ const enableboxes = () =>{
     for(let box of boxes){
         box.disabled = false;
         box.innerText = "";
+
     }
 }
 
